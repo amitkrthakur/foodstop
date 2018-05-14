@@ -1,0 +1,37 @@
+<mat-progress-bar *ngIf="sending && !response" mode="indeterminate"></mat-progress-bar>
+
+
+<div class="container">
+  <div class="row forgotpwd-form">
+    <div class="col-md-3 "></div>
+    <div class="col-md-6 col-md-offset-3">
+
+      <mat-card>
+        <mat-card-title>Forgot Password</mat-card-title>
+        <mat-card-subtitle>Enter your email address below, and we will send you a link to reset your password</mat-card-subtitle>
+        <div class="alert alert-danger" *ngIf="response.code==='014'||response.code==='023'">
+          {{response.err}}</div>
+        <div class="alert alert-warning" *ngIf="response.code==='024'">
+          {{response.msg}}</div>
+        <div class="alert alert-success" *ngIf="response.code==='012'">
+          {{response.msg}}</div>
+        <form [formGroup]="resetpwdForm" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email Address" formControlName="email">
+            <mat-error *ngIf="email.errors?.pattern">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.errors?.required">
+              Email is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <div class="alert-danger" *ngIf="response.code==='001'">
+            {{response.err}}</div>
+          <br>
+          <button mat-raised-button color="primary" class="btn btn-sm">Reset my Password</button>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

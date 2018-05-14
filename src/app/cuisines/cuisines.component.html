@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="cuisines-wrapper">
+        <mat-card *ngFor="let cuisine of cuisines">
+          <img mat-card-image src={{cuisine.imgurl}} alt={{cuisine.title}}>
+          <mat-card-title>
+            {{cuisine.title}}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{cuisine.description}}
+          </mat-card-subtitle>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div [@routerTransition]="getState(s)">
+        <router-outlet #s="outlet">
+          <div class="dishes-list">
+            Select from the list of the Cuisines on the left to get started.
+          </div>
+        </router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

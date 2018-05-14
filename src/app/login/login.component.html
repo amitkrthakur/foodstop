@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row login-form">
+    <div class="col-md-3 "></div>
+    <div class="col-md-6 col-md-offset-3">
+      <mat-card>
+        <h2 class="text-center">Login</h2>
+        <div class="logo ">
+          <img mat-image class="center" src="../../assets/img/avatar1_small.jpg">
+        </div>
+        <div class="alert alert-danger w-100 mt-2" *ngIf="response">
+          {{response.err}}</div>
+        <form [formGroup]="loginform" (ngSubmit)="onSubmit()" novalidate>
+          <mat-form-field class="w-100">
+            <input matInput type="email" name="email" placeholder="Email" formControlName="email">
+            <mat-error *ngIf="email.errors?.pattern">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="email.errors?.required">
+              Email is
+              <strong>required</strong>!
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="w-100">
+            <input matInput type="password" name="pwd" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="password.errors?.required">
+              Password is
+              <strong>required</strong>!
+            </mat-error>
+          </mat-form-field>
+          <mat-checkbox type="checkbox" name="remember" formControlName="remember">Keep me Signed In</mat-checkbox>
+
+          <a mat-button style="float:right;" routerLink="/auth/forgotpwd"> Forgot Password </a>
+          <br>
+          <button mat-raised-button color="primary" class="w-100"> Sign in</button>
+        </form>
+        <div class="text-center">
+          <span class="">OR</span>
+          <div class="row">
+            <div class="col-md-6 row-block">
+              <button mat-raised-button color="primary" href="#" class="facebook btn-block">Facebook</button>
+            </div>
+            <div class="col-md-6 row-block">
+              <button mat-raised-button color="primary" href="#" class="google btn-block">Google</button>
+            </div>
+          </div>
+        </div>
+        <div class="or-box row-block">
+          <div class="row">
+            <div class="col-md-12 row-block">
+              <button mat-raised-button color="accent" class="btn-block" routerLink="/auth/signup">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

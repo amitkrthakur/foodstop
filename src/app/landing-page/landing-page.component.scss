@@ -1,0 +1,9 @@
+.fullpage{
+    height:100vh;
+    .section{
+        height:100%;
+        &:nth-child(odd){
+            background: #000;
+        }
+    }
+}

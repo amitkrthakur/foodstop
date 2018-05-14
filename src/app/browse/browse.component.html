@@ -1,0 +1,77 @@
+<nav class="fixed-top">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="head-nav">
+      <!-- <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button> -->
+      <button style="height: 100%;" mat-button routerLink="/home">
+        <img class="logo" src="../assets/img/logo.png"> FOODIESS
+      </button>
+      <span class="spacer"></span>
+      <button mat-button routerLink="cart">
+        <mat-icon class="icon">shopping_cart</mat-icon>
+        My Cart
+      </button>
+      <button style="height: 100%;" mat-button [matMenuTriggerFor]="menu" class="d-none d-sm-block d-md-block d-lg-block">
+        <img mat-image class="mr-1 user" src="./assets/img/avatar1_small.jpg">
+        <span>
+          User
+          <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+        </span>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="profile">
+          <mat-icon>account_circle</mat-icon>
+          <span>My Profile</span>
+        </button>
+        <button mat-menu-item routerLink="/auth/logout">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <mat-progress-bar *ngIf="isloading" mode="indeterminate" color="accent"></mat-progress-bar> -->
+</nav>
+<mat-sidenav-container class="sidenav-container" autosize>
+  <!-- <mat-sidenav #drawer class="side" mode="side" opened>
+    <mat-card class="dashboard-btn">
+      <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="cuisines">
+        <i class="material-icons">dashboard</i>
+        <span>Cuisines</span>
+      </button>
+    </mat-card>
+    <mat-card class="dashboard-btn">
+      <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="collections">
+        <i class="material-icons">dashboard</i>
+        <span>Collections</span>
+      </button>
+    </mat-card>
+    <mat-card class="dashboard-btn">
+      <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="restaurants">
+        <mat-icon>dashboard</mat-icon>
+        <span>Restaurants</span>
+      </button>
+    </mat-card>
+    <mat-card class="dashboard-btn">
+      <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="map">
+        <i class="material-icons">dashboard</i>
+        <span>Map</span>
+      </button>
+    </mat-card>
+    <mat-card class="dashboard-btn">
+      <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="about">
+        <i class="material-icons">dashboard</i>
+        <span>About</span>
+      </button>
+    </mat-card>
+
+  </mat-sidenav> -->
+  <mat-sidenav-content>
+    <div class="sidenav-content">
+      <main class="main" [@routerTransition]="getState(o)">
+        <router-outlet #o="outlet"></router-outlet>
+      </main>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

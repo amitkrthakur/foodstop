@@ -1,0 +1,26 @@
+<nav class="fixed-top">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="head-nav">
+      <button style="height: 100%;" mat-button routerLink="/home">
+        <img class="logo" src="../assets/img/logo.png"> FOODIESS
+      </button>
+      <span class="spacer"></span>
+      <button mat-button routerLink="signup">
+        Sign Up
+      </button>
+      <button mat-raised-button color="accent" class="d-none d-sm-block d-md-block d-lg-block" routerLink="login">
+        Log In
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <mat-progress-bar *ngIf="isloading" mode="indeterminate" color="accent"></mat-progress-bar> -->
+</nav>
+<br><br><br>
+<div [@routerloginTransition]="getState(l)">
+    <router-outlet #l="outlet"></router-outlet>
+</div>
+
+
+<footer class="fixed-bottom">
+    <div class="text-center">&copy; 2018 Foodiess. All rights reserved. </div>
+</footer>
