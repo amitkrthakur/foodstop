@@ -14,7 +14,7 @@ export class HttpService {
   forgotpwdUrl: string = "http://localhost:4000/api/forgotpwd";
   resetpwdUrl: string = "http://localhost:4000/api/resetpwd";
   //=================
-  userId: string = 'abc@cm.in';
+  userId: string = 'user@test.com';
 
 
   getCollectionsUrl: string = "https://developers.zomato.com/api/v2.1/collections"
@@ -23,6 +23,7 @@ export class HttpService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
+      'user-key': '3c99a91c83aaebabc4ee9ca71bf6dba4'
     })
   };
   zomatoHeads = {
@@ -38,7 +39,7 @@ export class HttpService {
 
   getCollections(lat: Number, lon: Number): Observable<Object> {
     console.log("Requesting lat" + lat)
-    return this.http.get(this.getCollectionsUrl + '?lat=' + lat + '&lon=' + lon, this.zomatoHeads);
+    return this.http.get(this.getCollectionsUrl + '?lat=' + lat + '&lon=' + lon, this.httpOptions);
   }
 
   initiateSignup(data): Observable<Object> {

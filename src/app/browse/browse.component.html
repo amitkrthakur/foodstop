@@ -1,17 +1,30 @@
 <nav class="fixed-top">
   <mat-toolbar color="primary">
     <mat-toolbar-row class="head-nav">
-      <!-- <button type="button" mat-button (click)="drawer.toggle()">
+      <button type="button" mat-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
-      </button> -->
+      </button>
       <button style="height: 100%;" mat-button routerLink="/home">
         FOODSTOP
+        <mat-icon>fastfood</mat-icon>
         <!-- <img class="logo" src="../assets/img/logo.png"> -->
       </button>
       <span class="spacer"></span>
+      <div class="location">
+        <mat-form-field>
+          <mat-label>Search Location</mat-label>
+          <input matInput>
+        </mat-form-field>
+        <button mat-icon-button>
+          <mat-icon matSuffix>my_location</mat-icon>
+        </button>
+      </div>
+      <span class="spacer"></span>
+
       <button mat-button routerLink="cart">
+        <div class="count">5</div>
         <mat-icon class="icon">shopping_cart</mat-icon>
-        My Cart{{count.length}}
+        My Cart
       </button>
       <button style="height: 100%;" mat-button [matMenuTriggerFor]="menu" class="d-none d-sm-block d-md-block d-lg-block">
         <img mat-image class="mr-1 user" src="./assets/img/avatar1_small.jpg">
@@ -34,40 +47,41 @@
   </mat-toolbar>
   <!-- <mat-progress-bar *ngIf="isloading" mode="indeterminate" color="accent"></mat-progress-bar> -->
 </nav>
+
 <mat-sidenav-container class="sidenav-container" autosize>
-  <!-- <mat-sidenav #drawer class="side" mode="side" opened>
+  <mat-sidenav #drawer class="side" mode="side" opened>
     <mat-card class="dashboard-btn">
       <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="cuisines">
-        <i class="material-icons">dashboard</i>
+        <mat-icon>fastfood</mat-icon>
         <span>Cuisines</span>
       </button>
     </mat-card>
     <mat-card class="dashboard-btn">
       <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="collections">
-        <i class="material-icons">dashboard</i>
+        <mat-icon>restaurant</mat-icon>
         <span>Collections</span>
       </button>
     </mat-card>
     <mat-card class="dashboard-btn">
       <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="restaurants">
-        <mat-icon>dashboard</mat-icon>
+        <mat-icon>restaurant_menu</mat-icon>
         <span>Restaurants</span>
       </button>
     </mat-card>
     <mat-card class="dashboard-btn">
       <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="map">
-        <i class="material-icons">dashboard</i>
+        <mat-icon>places</mat-icon>
         <span>Map</span>
       </button>
     </mat-card>
     <mat-card class="dashboard-btn">
       <button routerLink="dashboard" routerLinkActive="active current" mat-button class="text-left" routerLink="about">
-        <i class="material-icons">dashboard</i>
+        <mat-icon>person</mat-icon>
         <span>About</span>
       </button>
     </mat-card>
+  </mat-sidenav>
 
-  </mat-sidenav> -->
   <mat-sidenav-content>
     <div class="sidenav-content">
       <main class="main" [@routerTransition]="getState(o)">

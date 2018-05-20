@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../http.service'
 
 @Component({
   selector: 'app-restaurant',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantComponent implements OnInit {
 
-  constructor() { }
+  lat:Number;
+  lon:Number;
+
+  restaurants:any[];
+
+  constructor(private http:HttpService) { }
 
   ngOnInit() {
   }
-
+  getColl() {
+    console.log("getting restaurants")
+    this.http.getCollections(this.lat, this.lon).subscribe(
+      (data: any) => {
+        console.log(data.collections);
+        this.restaurants = data.restaurants
+      }
+    );
+  }
 }

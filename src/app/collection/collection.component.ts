@@ -8,18 +8,23 @@ import { HttpService } from '../http.service';
 })
 export class CollectionComponent implements OnInit {
 
+  collections:any;
   lat: number = 28.5275198;
   lon: number = 77.0688997;
 
-  constructor(private http:HttpService) { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
-    this.getColl()
+    this.getColl();
   }
 
-  getColl(){
+  getColl() {
     console.log("getting collections")
-    this.http.getCollections(this.lat, this.lon)
+    this.http.getCollections(this.lat, this.lon).subscribe(
+      (data: any) => {
+        console.log(data.collections);
+        this.collections = data.collections
+      }
+    );
   }
-
 }

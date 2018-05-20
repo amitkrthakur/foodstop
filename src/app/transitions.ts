@@ -4,7 +4,7 @@ import { trigger, animate, style, group, animateChild, query, stagger, transitio
 export const routerTransition = trigger('routerTransition', [
     transition('* <=> *', [
     /* order */
-    /* 1 */ query(':enter, :leave', style({ position: 'absolute', width: 'inherit' })
+    /* 1 */ query(':enter, :leave', style({ position: 'absolute', width: '100%' })
             , { optional: true }),
         /* 2 */ group([  // block executes in parallel
             query(':enter', [

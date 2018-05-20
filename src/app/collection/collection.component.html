@@ -1,25 +1,16 @@
-<p>
-  collection works!
-</p>
-<div class="col-md-6">
-  <div class="cuisines-wrapper">
-    <!-- <mat-card *ngFor="let cuisine of cuisines-list">
-      <mat-card-title>
-        Title {{collection.title}}
-      </mat-card-title>
-      <mat-card-content>
-        Description {{collection.description}}
-      </mat-card-content>
-      <mat-card-image>
-        image {{collection.image_url}}
-      </mat-card-image>
-      <mat-action-row>
-        <button mat-raised-button color="accent">View More</button>
-        <button mat-raised-button color="accent">Browse More</button>
-        <button mat-raised-button color="accent">View More</button>
-
-      </mat-action-row>
-
-    </mat-card> -->
-  </div>
+<div class="text-center">
+  <h1>Collections</h1>
+  <h4>Browse throught the greatest collections available around you.</h4>
+</div>
+<div *ngFor="let i of collections">
+  <a href="{{i.collection.image_url}}"></a>
+  <mat-card>
+    <img mat-card-image src={{i.collection.image_url}} alt={{i.collection.title}}>
+    <mat-card-title>
+      {{i.collection.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{i.collection.description}}
+    </mat-card-subtitle>
+  </mat-card>
 </div>

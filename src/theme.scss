@@ -18,13 +18,13 @@ $custom-typography: mat-typography-config(
 @include angular-material-typography($custom-typography);
 
 // Copy the palettes from your selected theme (usually theme.scss).
-$app-primary: mat-palette($mat-grey, 300);
-$app-accent:  mat-palette($mat-pink, A200);
+$app-primary: mat-palette($custom-primary);
+$app-accent:  mat-palette($custom-accent);
 $app-warn:    mat-palette($mat-red);
 
 // Create your Sass color vars (will be available in all the project)
 $primary: mat-color($app-primary);
 // $accent: mat-color($app-accent);
-$accent: #FA9227;
+$accent: mat-color($app-accent);
 $warn: mat-color($app-warn);
 $bg-color: mat-palette($mat-grey, 100);
