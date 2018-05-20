@@ -20,16 +20,17 @@ export class SignupComponent implements OnInit {
   filteredCities: Observable<any[]>;
 
   response: any = { code: '' }
-  signupForm: FormGroup
-  email: FormControl
-  fName: FormControl
-  lName: FormControl
-  mob: FormControl
-  build: FormControl
-  street: FormControl
-  city: FormControl
-  state: FormControl
-  pin: FormControl
+  signupForm: FormGroup;
+  email: FormControl;
+  pwd: FormControl;
+  fName: FormControl;
+  lName: FormControl;
+  mob: FormControl;
+  build: FormControl;
+  street: FormControl;
+  city: FormControl;
+  state: FormControl;
+  pin: FormControl;
 
   ngOnInit() {
     this.createFormControls();
@@ -46,7 +47,8 @@ export class SignupComponent implements OnInit {
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
     ]);
-    this.fName = new FormControl;
+    this.pwd = new FormControl('', Validators.required)
+    this.fName = new FormControl('', Validators.required)
     this.lName = new FormControl;
     this.mob = new FormControl;
     this.build = new FormControl;
@@ -59,6 +61,7 @@ export class SignupComponent implements OnInit {
   createForm() {
     this.signupForm = this.fb.group({
       email: this.email,
+      pwd: this.pwd,
       fName: this.fName,
       lName: this.lName,
       mob: this.mob,
@@ -78,6 +81,23 @@ export class SignupComponent implements OnInit {
 
   onSubmit() {
     if (this.signupForm.valid) {
+      let data = {
+        name: {
+          first: this.fName,
+          last: this.lName
+        },
+        email: this.email,
+        pass: this.pwd,
+        mob: this.mob,
+        address: {
+          building: this.build,
+          street: this.street,
+          city: this.city,
+          state: this.state,
+          pin: this.pin
+        }
+
+      }
       console.log("sending to server...");
       this.httpService.initiateSignup(this.email.value).subscribe(
         (data: any) => {

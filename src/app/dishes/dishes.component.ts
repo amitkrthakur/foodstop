@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dishes',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DishesComponent implements OnInit {
 
-  constructor() { }
+  selectedCuisine:any;
+
+  //@Input() cuisine:any;
+  message:string;
+
+
+  receiveMessage($event) {
+    this.message = $event
+  }
+
 
   ngOnInit() {
+    //console.log(this.cuisine)
   }
 
 }

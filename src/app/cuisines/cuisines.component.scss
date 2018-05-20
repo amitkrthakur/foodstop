@@ -1,3 +1,70 @@
 mat-card{
     margin: 2rem 0;
 }
+
+.dishes-list{
+    margin:50% 0;
+    padding:2rem;
+    h3{
+        position: fixed;
+        &:after{
+            content: "";
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            height: 50px;
+            width: 50px;
+            border: solid #02ccba;
+            border-width: 5px 0 0 5px;
+            padding: 5px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            transition: move 0.5s ease-in-out;
+            animation: move 1.5s cubic-bezier(0, .83, .8, .96) infinite;
+        }
+    }
+}
+@keyframes move {
+	0% {
+		transform: rotate(-45deg);
+		opacity: 0;
+    }
+	50% {
+		transform: translateX(-30px) scale(1.2) rotate(-45deg);
+		opacity: 1;
+    }
+    100%{
+		transform: rotate(-45deg);
+        opacity: 0;
+    }
+}
+.cuisines{
+    transition: all 0.5s ease-in-out;
+    .selected{
+        box-shadow: 0px 0px 50px -10px;
+        background: #02ccba;
+        transform: scale(1.03)
+    }
+    &:hover{
+        box-shadow: 0px 0px 50px -10px;
+        cursor: pointer;
+        transform: scale(1.01)
+    }
+}
+.list{
+    height:85vh;
+    overflow-y: auto
+}
+.list-detail{
+    height:85vh;
+    overflow-y: auto
+}
+.col-md-4{
+    overflow: hidden;
+    img{
+        float:right;
+        max-height: 150px;
+        height: 100%;
+        widows: 100%;
+    }
+}

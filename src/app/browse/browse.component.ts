@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../transitions';
+//import { CuisinesComponent } from '../cuisines/cuisines.component'
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
   styleUrls: ['./browse.component.scss'],
-  animations: [ routerTransition ]
-
+  animations: [routerTransition]
 })
 export class BrowseComponent implements OnInit {
 
@@ -14,7 +14,9 @@ export class BrowseComponent implements OnInit {
     return outlet.activatedRouteData.state;
   }
 
-  constructor() { }
+  //count: any = this.orders.order;
+
+  //constructor(private orders:CuisinesComponent) { }
 
   ngOnInit() {
   }

@@ -11,12 +11,16 @@ export class WelcomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      setTimeout(function () {
-        $('.welcome').removeClass('hidden').fadeIn();
-      }, 1000);
-      setTimeout(function () {
-        $('.msg').removeClass('hidden').fadeIn();
-      }, 1800);
+    setTimeout(function () {
+      $('.welcome').removeClass('hidden').fadeIn();
+    }, 1000);
+    setTimeout(function () {
+      $('.msg').removeClass('hidden').fadeIn();
+    }, 1800);
+    setTimeout(function () {
+      $('.cta').removeClass('hidden').fadeIn();
+    }, 3000);
+
 
     var TxtType = function (el, toRotate, period) {
       this.toRotate = toRotate;
@@ -28,36 +32,37 @@ export class WelcomeComponent implements OnInit {
       this.isDeleting = false;
     };
 
-    TxtType.prototype.tick = function () {
-      var i = this.loopNum % this.toRotate.length;
-      var fullTxt = this.toRotate[i];
+    setTimeout(
+      TxtType.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
 
-      if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-      } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-      }
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
 
-      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
 
-      var that = this;
-      var delta = 200 - Math.random() * 100;
+        var that = this;
+        var delta = 200 - Math.random() * 100;
 
-      if (this.isDeleting) { delta /= 2; }
+        if (this.isDeleting) { delta /= 2; }
 
-      if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-      } else if (this.isDeleting && this.txt === '') {
-        this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-      }
+        if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+        }
 
-      setTimeout(function () {
-        that.tick();
-      }, delta);
-    };
+        setTimeout(function () {
+          that.tick();
+        }, delta);
+      }, 1800);
 
     window.onload = function () {
       var elements = document.getElementsByClassName('typewrite');

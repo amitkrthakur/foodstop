@@ -1,9 +1,119 @@
 .fullpage{
     height:100vh;
     .section{
+        position: relative;
         height:100%;
+        color: #000;
         &:nth-child(odd){
             background: #000;
+            color:#fff;
+        }
+    }
+}
+.overlay{
+    height:100%;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width:100%;
+    opacity:0.3;
+    z-index: -999;
+}
+.header{
+    background-image: url(../../assets/cuisine/pexels-photo-503177.jpg);
+}
+.cuisines{
+    background-image: url(../../assets/cuisine/pexels-photo-62097.jpg);
+}
+.collections{
+    background-image: url(../../assets/cuisine/bread-food-restaurant-people.jpg);
+}
+.restaurants{
+    background-image: url(../../assets/cuisine/menu-restaurant-vintage-table.jpg);
+}
+.map{
+    background-image: url(../../assets/cuisine/map.jpg);
+}
+.about{
+    background-image: url(../../assets/cuisine/pexels-photo-1070894.jpeg);
+}
+
+.head{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%) translateY(-50%);
+    h4{
+        text-transform: uppercase;
+        text-shadow: #fff 0 0 20px;
+        letter-spacing: 1rem;
+        &:before{
+            content: '';
+            width:50%;
+            height:2px;
+            background: #F40062;
+            position: fixed;
+            bottom: 0;
+            left: 20%;
+        }
+    }
+}
+.content{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    z-index: 999999;
+    transform: translateX(-50%) translateY(-50%);
+    h1{
+        text-transform: uppercase;
+        margin:2rem;
+    }
+
+    .btn {
+        border: #F40062 2px solid;
+        background: transparent;
+        padding:0.5rem 1.5rem;
+        text-transform: uppercase;
+        color: #F40062;
+        font-weight: 800;
+        margin:2rem;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+            transform: translateY(-2px) scale(1.1);
+            background-color: #F40062;
+            color: #fff;
+            box-shadow: 0 0 4px #444;
+        }
+        &:active{
+            transform: translateY(1px) scale(1);
+            box-shadow: 0 0 0;
+        }
+    }
+}
+@media only screen and (max-width: 1200px) {
+    .head{
+        h4{
+            font-size: 1rem !important;
+        }
+    }
+    .content{
+        h1{
+            font-size: 2rem !important;
+        }
+        width:100%
+    }
+}
+@media only screen and (max-width: 510px) {
+    .content{
+        h1{
+            font-size: 1.5rem !important;
+        }
+        .btn{
+            font-size: 0.7rem;
+            margin:1rem;
+
         }
     }
 }

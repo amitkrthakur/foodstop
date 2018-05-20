@@ -51,9 +51,9 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent, data: { state: 'cart' } },
       {
         path: 'cuisines', component: CuisinesComponent,
-        children: [
-          { path: 'cuisine/:id', component: DishesComponent }
-        ]
+        // children: [
+        //   { path: 'cuisine/:id', component: DishesComponent }
+        // ]
       },
     ]
   }

@@ -5,12 +5,13 @@
         <mat-icon>menu</mat-icon>
       </button> -->
       <button style="height: 100%;" mat-button routerLink="/home">
-        <img class="logo" src="../assets/img/logo.png"> FOODIESS
+        FOODSTOP
+        <!-- <img class="logo" src="../assets/img/logo.png"> -->
       </button>
       <span class="spacer"></span>
       <button mat-button routerLink="cart">
         <mat-icon class="icon">shopping_cart</mat-icon>
-        My Cart
+        My Cart{{count.length}}
       </button>
       <button style="height: 100%;" mat-button [matMenuTriggerFor]="menu" class="d-none d-sm-block d-md-block d-lg-block">
         <img mat-image class="mr-1 user" src="./assets/img/avatar1_small.jpg">

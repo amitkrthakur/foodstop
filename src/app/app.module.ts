@@ -33,6 +33,7 @@ import { DishesComponent } from './dishes/dishes.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './auth/auth.component';
 import { AdminComponent } from './admin/admin.component';
+import { CuisineListComponent } from './cuisine-list/cuisine-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AdminComponent } from './admin/admin.component';
     DishesComponent,
     ProfileComponent,
     AuthComponent,
-    AdminComponent
+    AdminComponent,
+    CuisineListComponent
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@
           <div class="alert alert-success" *ngIf="response.code==='011'">
             {{response.msg}}</div>
           <mat-form-field class="w-100">
-            <input matInput placeholder="Email Address" type="email" name="signupEmail" formControlName="email">
+            <input matInput placeholder="Email Address" type="email" name="signupEmail" [formControl]="email">
             <mat-error *ngIf="email.errors?.pattern">
               Please enter a valid email address
             </mat-error>
@@ -28,22 +28,29 @@
             {{response.err}}</div>
           <br>
           <mat-form-field>
-            <input matInput placeholder="First Name">
+            <input matInput [formControl]="fName" placeholder="First Name">
+            <mat-error *ngIf="fName.errors?.required">
+              Please enter your name
+            </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Last Name">
+            <input matInput [formControl]="lName" placeholder="Last Name">
           </mat-form-field>
           <mat-form-field class="w-100">
-            <input matInput placeholder="Mobile Number">
+            <input matInput [formControl]="mob" placeholder="Mobile Number">
           </mat-form-field>
           <mat-form-field class="w-100">
-            <input matInput placeholder="Building/Premises">
+            <mat-label>Password</mat-label>
+            <input matInput [formControl]="pwd" type="password" placeholder="Enter your password here">
           </mat-form-field>
           <mat-form-field class="w-100">
-            <input matInput placeholder="Street">
+            <input matInput [formControl]="build" placeholder="Building/Premises">
           </mat-form-field>
           <mat-form-field class="w-100">
-            <input matInput placeholder="City" formControlName="city">
+            <input matInput [formControl]="street" placeholder="Street">
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input matInput placeholder="City" [formControl]="city">
             <!-- <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let city of filterCities | async" [value]="cities.name">
                   <span>{{ state.name }}</span>
@@ -52,15 +59,15 @@
           </mat-form-field>
           <mat-form-field class="w-100">
             <mat-label>State</mat-label>
-            <mat-select>
+            <mat-select [formControl]="state">
               <mat-option *ngFor="let state of states" [value]="state.key">{{state.name}}</mat-option>
             </mat-select>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="PIN Code">
+            <input matInput [formControl]="pin" placeholder="PIN Code">
           </mat-form-field>
           <br>
-          <button type="submit" mat-raised-button class="btn-success">Create Account</button>
+          <button type="submit" mat-raised-button color="accent" class="btn btn-success">Create Account</button>
         </form>
       </mat-card>
     </div>

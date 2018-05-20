@@ -11,12 +11,44 @@ export class DataService {
     //   title: 'South Indian',
     //   desc: '',
     //   dishes: [
-
-
-
-
+    //     {
+    //       name: 'Shahi Paneer',
+    //       desc: '',
+    //       price: 250,
+    //       imgurl: '../../assets/veg/shahi.jpg'
+    //     },
+    //     {
+    //       name: 'Shahi Paneer',
+    //       desc: '',
+    //       price: 250,
+    //       imgurl: '../../assets/veg/shahi.jpg'
+    //     },
+    //     {
+    //       name: 'Shahi Paneer',
+    //       desc: '',
+    //       price: 250,
+    //       imgurl: '../../assets/veg/shahi.jpg'
+    //     },
+    //     {
+    //       name: 'Shahi Paneer',
+    //       desc: '',
+    //       price: 250,
+    //       imgurl: '../../assets/veg/shahi.jpg'
+    //     },
+    //     {
+    //       name: 'Shahi Paneer',
+    //       desc: '',
+    //       price: 250,
+    //       imgurl: '../../assets/veg/shahi.jpg'
+    //     },
+    //     {
+    //       name: 'Shahi Paneer',
+    //       desc: '',
+    //       price: 250,
+    //       imgurl: '../../assets/veg/shahi.jpg'
+    //     }
     //   ],
-    //   imgurl: '',
+    //   imgurl: '../../assets/south.jpg',
     // },
     {
       title: 'Pure Veg',
@@ -50,7 +82,7 @@ export class DataService {
           name: 'Dal Makhani',
           desc: '',
           price: 170,
-          imgurl: '../../assets/veg/dal-makhani.jpg'
+          imgurl: '../../assets/veg/dal.jpg'
         }
       ],
       imgurl: '../../assets/veg.jpg',
@@ -63,7 +95,7 @@ export class DataService {
           name: 'Rice',
           desc: '',
           price: 120,
-          imgurl: '../../assets/rice/rice.jpg'
+          imgurl: '../../assets/rice/rice.jpeg'
         },
         {
           name: 'Steamed Rice',
@@ -75,7 +107,7 @@ export class DataService {
           name: 'Jeera Rice',
           desc: '',
           price: 150,
-          imgurl: '../../assets/rice/jeera.jpg'
+          imgurl: '../../assets/rice/jeera.jpeg'
         },
         {
           name: 'Matar Pulao',
@@ -100,19 +132,19 @@ export class DataService {
           name: 'Rumali Roti',
           desc: '',
           price: 30,
-          imgurl: '../../assets/paratha/rumali.jpg'
+          imgurl: '../../assets/paratha/rumali.jpeg'
         },
         {
           name: 'Butter Naan',
           desc: '',
           price: 220,
-          imgurl: '../../assets/paratha/butter.jpg'
+          imgurl: '../../assets/paratha/butter.jpeg'
         },
         {
           name: 'Paratha',
           desc: '',
           price: 50,
-          imgurl: '../../assets/paratha/paratha.jpg'
+          imgurl: '../../assets/paratha/paratha.jpeg'
         },
         {
           name: 'Lachha Parantha',
@@ -155,7 +187,7 @@ export class DataService {
           name: 'Prawn Chowmein',
           desc: '',
           price: 220,
-          imgurl: '../../assets/chinese/prawn.jpg'
+          imgurl: '../../assets/chinese/prawn.jpeg'
         },
       ],
       imgurl: '../../assets/chinese.jpg',
@@ -206,13 +238,13 @@ export class DataService {
           name: 'Tomato Soup',
           desc: '',
           price: 50,
-          imgurl: '../../assets/soup/tomato.jpg'
+          imgurl: '../../assets/soup/tomato.jpeg'
         },
         {
           name: 'Sweet corn (veg)',
           desc: '',
           price: 40,
-          imgurl: '../../assets/soup/cornveg.jpg'
+          imgurl: '../../assets/soup/cornveg.jpeg'
         },
         {
           name: 'Sweet corn (non veg)',
@@ -230,7 +262,7 @@ export class DataService {
           name: 'Hot and Sour (non veg)',
           desc: '',
           price: 50,
-          imgurl: '../../assets/soup/hotnonveg.jpg'
+          imgurl: '../../assets/soup/hotnonveg.jpeg'
         },
       ],
       imgurl: '../../assets/soup.jpg',
@@ -243,7 +275,7 @@ export class DataService {
           name: 'Crispy chilly baby corn',
           desc: '',
           price: 80,
-          imgurl: '../../assets/snacks/baby.jpg'
+          imgurl: '../../assets/snacks/baby.jpeg'
         },
         {
           name: 'Veg Pakora',
@@ -267,7 +299,7 @@ export class DataService {
           name: 'Chicken Drumstick',
           desc: '',
           price: 80,
-          imgurl: '../../assets/snacks/chicken.jpg'
+          imgurl: '../../assets/snacks/chicken.jpeg'
         },
       ],
       imgurl: '../../assets/snacks.jpg'
@@ -280,7 +312,7 @@ export class DataService {
           name: 'Chicken Biryani',
           desc: '',
           price: 120,
-          imgurl: '../../assets/biryani/chicken.jpg'
+          imgurl: '../../assets/biryani/chicken.png'
         },
         {
           name: 'Mutton Biryani',
@@ -294,18 +326,20 @@ export class DataService {
           price: 50,
           imgurl: '../../assets/biryani/egg.jpg'
         },
-        {
-          name: 'Chicken dum Biryani',
-          desc: '',
-          price: 50,
-          imgurl: '../../assets/biryani/chicken.jpg'
-        },
       ],
       imgurl: '../../assets/biryani.jpg'
     }
 
   ]
+
+  user: User =
+    {
+      id: 'amit@ris.com',
+      pass: 'pass'
+    }
+
 }
+
 interface Cuisine {
   title: String,
   desc: String,
@@ -317,4 +351,8 @@ interface Dish {
   desc: String,
   price: Number,
   imgurl: String
+}
+interface User {
+  id: String,
+  pass: String
 }

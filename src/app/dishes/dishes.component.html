@@ -1,3 +1,17 @@
-<p>
-  dishes works!
-</p>
+<div class="dishes-wrapper">
+  <mat-card *ngFor="let dish of selectedCuisine">
+    <img mat-card-image src={{dish.imgurl}} alt={{dish.title}}>
+    <mat-card-title>
+      {{dish.title}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{dish.description}}
+    </mat-card-subtitle>
+    <mat-card-content>
+      Price : {{dish.price | currency:'INR':true}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Add to Cart</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -35,8 +35,10 @@ a.active{
     color:#000;
     font-weight:bold;
 }
-
-.sidenav-container{
-    margin-top:64px;
-    height: calc(100% - 64px)
+mat-sidenav-container{
+    height:100%
+}
+.mat-sidenav-content{
+    margin-top:80px;
+    
 }
