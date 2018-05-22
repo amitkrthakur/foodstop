@@ -2,15 +2,17 @@
   <h1>Collections</h1>
   <h4>Browse throught the greatest collections available around you.</h4>
 </div>
-<div *ngFor="let i of collections">
-  <a href="{{i.collection.image_url}}"></a>
-  <mat-card>
-    <img mat-card-image src={{i.collection.image_url}} alt={{i.collection.title}}>
-    <mat-card-title>
-      {{i.collection.title}}
-    </mat-card-title>
-    <mat-card-subtitle>
-      {{i.collection.description}}
-    </mat-card-subtitle>
-  </mat-card>
-</div>
+  <div class="my-grid">
+    <mat-card *ngFor="let i of collections">
+      <img mat-card-image src={{i.collection.image_url}} alt={{i.collection.title}}>
+      <mat-card-title>
+        {{i.collection.title}}
+      </mat-card-title>
+      <mat-card-subtitle>
+        {{i.collection.description}}
+      </mat-card-subtitle>
+      <a href="{{i.collection.url}}">
+        <button mat-raised-button color="primary">Know more</button>
+      </a>
+    </mat-card>
+  </div>

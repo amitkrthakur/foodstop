@@ -11,10 +11,13 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#F40062">
+  <style>.spinner{position:absolute;left:50%;top:50%}.spinner span{display:block;height:15px;width:15px;background:#F40062;border-radius:50%;position:absolute;top:0}.spinner span:nth-child(1){left:-25px;-webkit-animation:bounce 1s ease-in-out infinite;animation:bounce 1s ease-in-out infinite}.spinner span:nth-child(2){-webkit-animation:bounce 1s ease-in-out .33s infinite;animation:bounce 1s ease-in-out .33s infinite}.spinner span:nth-child(3){left:25px;-webkit-animation:bounce 1s ease-in-out .66s infinite;animation:bounce 1s ease-in-out .66s infinite}@keyframes bounce{0%,100%,75%{-webkit-transform:translateY(0);transform:translateY(0)}25%{-webkit-transform:translateY(-30px);transform:translateY(-30px)}}</style>
 </head>
 
 <body>
-  <app-root></app-root>
+  <app-root>
+    <div class="spinner spinner-5"><span></span><span></span><span></span></div>
+  </app-root>
 </body>
 
 </html>

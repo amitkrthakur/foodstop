@@ -23,11 +23,11 @@ mat-card{
     padding:0 !important;
     button{
         width:100%;
-        padding:1rem 2rem;
+        padding:0.5rem 2rem;
         &.active, &.current{
             color:#fff;
-            padding-left: 3rem;
             background-color: $accent;
+            padding-left: 3.5rem;
         }
         span{
             margin-left: 5px;
