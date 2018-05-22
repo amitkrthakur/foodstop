@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BrowseComponent } from '../browse/browse.component'
 
 @Component({
   selector: 'app-map',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  lat: number = 28.5275198;
-  lon: number = 77.0688997;
-  constructor() { }
+  lat: number = this.loc.latitude
+  lon: number = this.loc.longitude
+
+  constructor(private loc:BrowseComponent) { }
 
   ngOnInit() {
+
   }
+
 
 }

@@ -14,11 +14,20 @@ export class BrowseComponent implements OnInit {
     return outlet.activatedRouteData.state;
   }
 
+  latitude;
+  longitude;
   //count: any = this.orders.order;
 
   //constructor(private orders:CuisinesComponent) { }
 
   ngOnInit() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        console.log(position.coords);
+      });
+    }
   }
 
 }
