@@ -1,3 +1,77 @@
-<p>
-  restaurant works!
-</p>
+<div class="text-center">
+  <h4 class="head">Nearby Restraunts</h4>
+  <p>{{location.city_name}}</p>
+</div>
+
+<div class="res-list">
+  <mat-card class="item" *ngFor="let i of restaurants">
+    <img mat-card-image src={{i.restaurant.featured_image}} alt={{i.restaurant.name}}>
+    <mat-card-title>
+      {{i.restaurant.name}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{i.restaurant.location.locality_verbose}}
+    </mat-card-subtitle>
+    <p>
+      <mat-icon color="primary">location_on</mat-icon>
+      {{i.restaurant.location.address}}
+    </p>
+
+    <p>
+      <mat-icon color="primary">money</mat-icon>
+      <span>Average cost for two: </span>
+      {{i.restaurant.average_cost_for_two | currency:'INR'}}
+    </p>
+
+    <p>
+      <mat-icon color="primary">restaurant_menu</mat-icon>
+      <span>Cuisines available: </span>
+      {{i.restaurant.cuisines}}
+    </p>
+    <p>
+      <strong>Features</strong>
+      <br>
+      <mat-icon color="accent">shopping_basket</mat-icon>
+      <span>Offers online delivery: </span>
+      <mat-icon *ngIf="i.restaurant.has_online_delivery" class="yes">check_circle</mat-icon>
+      <mat-icon *ngIf="!i.restaurant.has_online_delivery" class="no">cancel</mat-icon>
+      <br>
+      <mat-icon color="accent">book</mat-icon>
+      <span>Has Table Booking: </span>
+      <mat-icon *ngIf="i.restaurant.has_table_booking" class="yes">check_circle</mat-icon>
+      <mat-icon *ngIf="!i.restaurant.has_table_booking" class="no">cancel</mat-icon>
+      <br>
+      <mat-icon color="accent">send</mat-icon>
+      <span>Is delivering now: </span>
+      <mat-icon *ngIf="i.restaurant.is_delivering_now" class="yes">check_circle</mat-icon>
+      <mat-icon *ngIf="!i.restaurant.is_delivering_now" class="no">cancel</mat-icon>
+      <br>
+      <mat-icon color="accent">attach_money</mat-icon>
+      <span>Price Group: </span>
+      {{i.restaurant.price_range}}
+      <br>
+    </p>
+
+    <p>
+      <strong>Ratings :</strong>
+      <span style="font-weight:bold;">
+        {{i.restaurant.user_rating.aggregate_rating}}&nbsp; {{i.restaurant.user_rating.rating_text}}
+      </span>
+      <br> Votes: {{i.restaurant.user_rating.votes}}
+      <br>
+    </p>
+
+    <a href="{{i.restaurant.menu_url}}">
+      <button mat-raised-button color="primary">View Menu</button>
+    </a>
+    <a href="{{i.restaurant.photos_url}}">
+      <button mat-raised-button color="primary">View Photos</button>
+    </a>
+    <a href="{{i.restaurant.book_url}}">
+      <button mat-raised-button color="primary">Book a Table</button>
+    </a>
+
+    <button mat-raised-button color="primary" (click)="openMap(i.restaurant)">Show Map</button>
+  </mat-card>
+
+</div>

@@ -14,14 +14,19 @@
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
-  <!-- <mat-progress-bar *ngIf="isloading" mode="indeterminate" color="accent"></mat-progress-bar> -->
 </nav>
-<div class="wrapper">
+<br>
+<div class="grid">
   <div class="img"></div>
-  <div [@routerloginTransition]="getState(l)">
-      <router-outlet #l="outlet"></router-outlet>
+  <div class="oops">
+    <h1>Opps....</h1>
+    <h4>The page you are looking for was not found</h4>
+    <p>Please check the URL or if you have mispelled something by mistake.</p>
+    <button mat-raised-button color="accent" routerLink="/home">Go to Home</button>
+    <button mat-raised-button color="primary" routerLink="/browse">Browse for More</button>
   </div>
 </div>
+
 <footer class="fixed-bottom">
-    <div class="text-center">&copy; 2018 FoodStop. All rights reserved. </div>
+  <div class="text-center">&copy; 2018 FoodStop. All rights reserved. </div>
 </footer>

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { routerTransition } from '../transitions';
-//import { CuisinesComponent } from '../cuisines/cuisines.component'
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-browse',
@@ -10,21 +10,21 @@ import { routerTransition } from '../transitions';
 })
 export class BrowseComponent implements OnInit {
 
+  selectedCity: String = 'New Delhi, India'
+
   getState(outlet) {
     return outlet.activatedRouteData.state;
   }
 
-  latitude;
-  longitude;
-  //count: any = this.orders.order;
+  //cartCount: any = this.orders.order.length;
 
-  //constructor(private orders:CuisinesComponent) { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        this.latitude = position.coords.latitude;
-        this.longitude = position.coords.longitude;
+        this.http.latitude = position.coords.latitude;
+        this.http.longitude = position.coords.longitude;
         console.log(position.coords);
       });
     }

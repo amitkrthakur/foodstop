@@ -8,7 +8,7 @@ import { CustomValidations } from '../custom-validations'
 @Component({
   selector: 'app-pwdreset',
   templateUrl: './pwdreset.component.html',
-  styleUrls: ['./pwdreset.component.css']
+  styleUrls: ['./pwdreset.component.scss']
 })
 export class PwdresetComponent implements OnInit {
 

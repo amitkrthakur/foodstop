@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   cityCtrl: FormControl
   filteredCities: Observable<any[]>;
 
-  response: any = { code: '' }
+  response: any = { message: '' }
   signupForm: FormGroup;
   email: FormControl;
   pwd: FormControl;
@@ -86,7 +86,7 @@ export class SignupComponent implements OnInit {
           first: this.fName,
           last: this.lName
         },
-        email: this.email,
+        userId: this.email,
         pass: this.pwd,
         mob: this.mob,
         address: {
@@ -96,14 +96,13 @@ export class SignupComponent implements OnInit {
           state: this.state,
           pin: this.pin
         }
-
       }
       console.log("sending to server...");
-      this.httpService.initiateSignup(this.email.value).subscribe(
+      this.httpService.initiateSignup(data).subscribe(
         (data: any) => {
           console.log(data);
-          this.response = JSON.parse(data.error);
-          console.log(this.response);
+          // this.response = JSON.parse(data.message);
+          // console.log(this.response);
         }
       );
       console.log("Form Submitted", this.signupForm.value)

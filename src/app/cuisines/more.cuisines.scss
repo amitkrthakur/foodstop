@@ -1,0 +1,29 @@
+@import '../../theme.scss';
+
+.head{
+    position: relative;
+    &:after{
+        content: '';
+        width: 35%;
+        background: $primary;
+        height: 2px;
+        position: absolute;
+        bottom: -2px;
+        left:calc((100% - 35%)/2);
+        right: 0;
+    }
+}
+.cus-lis {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    .item{
+        padding:0.3rem 0.5rem;
+        transition:all 0.3s ease-in;
+        border-radius: 5px;
+        &:hover{
+            background: $primary;
+            color:#fff
+        }
+    }
+}

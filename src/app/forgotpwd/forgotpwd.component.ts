@@ -4,7 +4,7 @@ import { HttpService } from '../http.service';
 @Component({
   selector: 'app-forgotpwd',
   templateUrl: './forgotpwd.component.html',
-  styleUrls: ['./forgotpwd.component.css']
+  styleUrls: ['./forgotpwd.component.scss']
 })
 export class ForgotpwdComponent implements OnInit {
 

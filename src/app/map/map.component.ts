@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BrowseComponent } from '../browse/browse.component'
+import { BrowseComponent } from '../browse/browse.component';
+import { HttpService } from '../http.service';
 
 @Component({
   selector: 'app-map',
@@ -8,10 +9,10 @@ import { BrowseComponent } from '../browse/browse.component'
 })
 export class MapComponent implements OnInit {
 
-  lat: number = this.loc.latitude
-  lon: number = this.loc.longitude
+  lat: Number = this.http.latitude
+  lon: Number = this.http.longitude
 
-  constructor(private loc:BrowseComponent) { }
+  constructor(private http: HttpService) { }
 
   ngOnInit() {
 

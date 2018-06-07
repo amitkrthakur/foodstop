@@ -8,7 +8,7 @@ import { HttpService } from '../http.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
@@ -45,29 +45,29 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     if (this.loginform.valid) {
       console.log("logging in user...");
-      let data: any = { 'email': this.email.value, 'pwd': this.password.value, 'rem': this.remember.value };
+      let data: any = { 'userId': this.email.value, 'pass': this.password.value };
       console.log(JSON.stringify(data));
-      // this.httpService.loginUser(data).subscribe(
-      //   (data: any) => {
-      //     console.log(JSON.stringify(data));
-      //     this.response = JSON.parse(data.error);
-      //     console.log(this.response)
-      //     if (this.response.code == '021') {
-      //       this.router.navigateByUrl("/browse");
-      //     }
-      //   }
-      // );
-      if (this.dt.user.id == this.email.value && this.dt.user.pass == this.password.value) {
-        this.router.navigateByUrl("/browse");
-        this.snackBar.open('Login', 'Successfull', {
-          duration: 2000,
-        });
-      }
-      else {
-        this.snackBar.open('Invalid', 'Credentials', {
-          duration: 2000,
-        });
-      }
+      this.httpService.loginUser(data).subscribe(
+        (data: any) => {
+          console.log(JSON.stringify(data));
+          this.response = JSON.parse(data.message);
+          console.log(this.response)
+          if (this.response == 'Successfully logged In') {
+            this.router.navigateByUrl("/browse");
+          }
+        }
+      );
+      // if (this.dt.user.id == this.email.value && this.dt.user.pass == this.password.value) {
+      //   this.router.navigateByUrl("/browse");
+      //   this.snackBar.open('Login', 'Successfull', {
+      //     duration: 2000,
+      //   });
+      // }
+      // else {
+      //   this.snackBar.open('Invalid', 'Credentials', {
+      //     duration: 2000,
+      //   });
+      // }
     }
     else {
       console.log("FormData is Invalid");

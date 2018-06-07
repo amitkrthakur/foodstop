@@ -9,8 +9,6 @@ import { HttpService } from '../http.service';
 export class CollectionComponent implements OnInit {
 
   collections:any;
-  lat: number = 28.5275198;
-  lon: number = 77.0688997;
 
   constructor(private http: HttpService) { }
 
@@ -20,7 +18,7 @@ export class CollectionComponent implements OnInit {
 
   getColl() {
     console.log("getting collections")
-    this.http.getCollections(this.lat, this.lon).subscribe(
+    this.http.getCollections().subscribe(
       (data: any) => {
         console.log(data.collections);
         this.collections = data.collections

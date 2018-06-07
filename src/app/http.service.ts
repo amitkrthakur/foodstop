@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+//import { BrowseComponent } from './browse/browse.component'
 
 @Injectable({
   providedIn: 'root',
@@ -9,39 +10,49 @@ import { HttpHeaders } from '@angular/common/http';
 
 export class HttpService {
 
-  signupUrl: string = "http://localhost:4000/api/users/signup";
-  loginUrl: string = "http://localhost:4000/api/users/login";
-  forgotpwdUrl: string = "http://localhost:4000/api/forgotpwd";
-  resetpwdUrl: string = "http://localhost:4000/api/resetpwd";
-  //=================
   userId: string = 'user@test.com';
 
+  //Default Location
+  latitude: Number = 19.0166239;
+  longitude: Number = 72.8930751;
 
-  getCollectionsUrl: string = "https://developers.zomato.com/api/v2.1/collections"
+  //Default City
+  city_id: Number = 1;
 
+  // latitude: Number = this.geo.latitude;
+  // longitude: Number = this.geo.longitude;
 
+  scheme: string = 'http';
+  host: string = 'localhost/backend';
+
+  //Http Headers
   httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
+  zomatoHeaders = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'user-key': '3c99a91c83aaebabc4ee9ca71bf6dba4'
     })
   };
-  zomatoHeads = {
-    headers: new HttpHeaders({
-      'user-key': '3c99a91c83aaebabc4ee9ca71bf6dba4'
-    })
-  };
 
+  //Login Flow Urls__________________________________________________
+  signupUrl: string = this.scheme + '://' + this.host + '/api/login/signup';
+  loginUrl: string = this.scheme + '://' + this.host + '/api/login/login';
+  resetpwdUrl: string = this.scheme + '://' + this.host + '/api/resetpwd';
+  forgotpwdUrl: string = this.scheme + '://' + this.host + '/api/forgotpwd';
 
+  //Zomato API Urls
+  collectionsUrl: string = "https://developers.zomato.com/api/v2.1/collections"
+  cuisinesUrl: string = "https://developers.zomato.com/api/v2.1/cuisines"
+  searchUrl: string = "https://developers.zomato.com/api/v2.1/search"
+  geoLocationUrl: string = "https://developers.zomato.com/api/v2.1/geocode"
 
   constructor(private http: HttpClient) { }
 
-
-  getCollections(lat: Number, lon: Number): Observable<Object> {
-    console.log("Requesting lat" + lat)
-    return this.http.get(this.getCollectionsUrl + '?lat=' + lat + '&lon=' + lon, this.httpOptions);
-  }
-
+  //Login
   initiateSignup(data): Observable<Object> {
     return this.http.post(this.signupUrl, data, this.httpOptions);
   }
@@ -58,5 +69,27 @@ export class HttpService {
     return this.http.post(this.resetpwdUrl, data, this.httpOptions);
   }
 
-  //======================Dashboard=========================//
+
+  //Zomato Api
+  getCollections(): Observable<Object> {
+    return this.http.get(this.collectionsUrl + '?lat=' + this.longitude + '&lon=' + this.longitude, this.zomatoHeaders);
+  }
+
+  getCuisines(): Observable<Object> {
+    return this.http.get(this.cuisinesUrl + '?lat=' + this.latitude + '&lon=' + this.longitude, this.zomatoHeaders);
+  }
+
+  nearbyRestaurants() {
+    return this.http.get(this.geoLocationUrl + '?lat=' + this.latitude + '&lon=' + this.longitude, this.zomatoHeaders);
+  }
+
+  searchCuisines(cus_id: Number): Observable<Object> {
+    return this.http.get(this.searchUrl + '?lat=' + this.latitude + '&lon=' + this.longitude + '&id' + cus_id, this.zomatoHeaders);
+  }
+
+  searchRestaurant(res_id: Number): Observable<Object> {
+    return this.http.get(this.searchUrl + '?lat=' + this.latitude + '&lon=' + this.longitude + '&id' + res_id, this.zomatoHeaders);
+  }
+
+
 }

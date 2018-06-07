@@ -1,6 +1,6 @@
 mat-card{
     margin: 1rem 0.5rem;
-    max-width: 300px;
+    width: 300px;
 }
 .my-grid {
     display: flex;
@@ -9,5 +9,6 @@ mat-card{
     justify-content: space-evenly;
 }
 .mat-card-image{
-    max-height: 200px
+    max-height: 200px;
+    border-radius: 8px 8px 0 0;
 }

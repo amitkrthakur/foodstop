@@ -20,6 +20,10 @@ import { DishesComponent } from './dishes/dishes.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './auth/auth.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component'
+import { AddProductsComponent } from './add-products/add-products.component';
+import { OrdersComponent } from './orders/orders.component';
+import { NotfoundComponent } from './notfound/notfound.component'
 
 
 const routes: Routes = [
@@ -30,7 +34,7 @@ const routes: Routes = [
     path: 'auth', component: AuthComponent,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'admin', component: AdminComponent, data: { state: 'admin' } },
+      { path: 'admin-login', component: AdminComponent, data: { state: 'admin' } },
       { path: 'signup', component: SignupComponent, data: { state: 'signup' } },
       { path: 'login', component: LoginComponent, data: { state: 'login' } },
       { path: 'pwdreset/:code', component: PwdresetComponent, data: { state: 'pwdreset' } },
@@ -38,7 +42,13 @@ const routes: Routes = [
       { path: 'logout', component: LogoutComponent, data: { state: 'logout' } },
     ]
   },
-
+  {
+    path: 'admin', component: AdminDashboardComponent,
+    children: [
+      { path: 'add-products', component: AddProductsComponent, data: { state: 'admin' } },
+      { path: 'orders', component: OrdersComponent, data: { state: 'signup' } },
+    ]
+  },
   {
     path: 'browse', component: BrowseComponent,
     children: [
@@ -56,7 +66,9 @@ const routes: Routes = [
         // ]
       },
     ]
-  }
+  },
+  {path: '404', component: NotfoundComponent},
+  {path: '**', redirectTo: '/404'}
 ]
 
 @NgModule({

@@ -1,0 +1,72 @@
+<nav class="fixed-top">
+  <mat-toolbar color="accent">
+    <mat-toolbar-row class="head-nav">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button style="height: 100%;" mat-button routerLink="/home">
+        FOODSTOP
+        <mat-icon>fastfood</mat-icon>
+        <!-- <img class="logo" src="../assets/img/logo.png"> -->
+      </button>
+      <span class="spacer"></span>
+
+      <button style="height: 100%;" mat-button [matMenuTriggerFor]="menu" class="d-none d-sm-block d-md-block d-lg-block">
+        <img mat-image class="mr-1 user" src="./assets/img/avatar1_small.jpg">
+        <span>
+          Admin
+          <mat-icon class="icon">keyboard_arrow_down</mat-icon>
+        </span>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/auth/logout">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log Out</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <!-- <mat-progress-bar *ngIf="isloading" mode="indeterminate" color="accent"></mat-progress-bar> -->
+</nav>
+
+<mat-sidenav-container class="sidenav-container" autosize>
+  <mat-sidenav #drawer class="side" mode="side" opened>
+    <mat-card class="dashboard-btn nav-item">
+      <button routerLink="add-products" routerLinkActive="active current" mat-button class="text-left">
+        <mat-icon>library_add</mat-icon>
+        <span>Add Products</span>
+      </button>
+    </mat-card>
+    <mat-card class="dashboard-btn nav-item">
+      <button routerLink="orders" routerLinkActive="active current" mat-button class="text-left">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Orders</span>
+      </button>
+    </mat-card>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="sidenav-content">
+      <div class="container">
+        <mat-card>
+          <mat-card-title class="text-center">Admin Dashboard</mat-card-title>
+          <mat-card-content>
+            <div class="row">
+              <div class="col-md-9">
+                Total Active Users: 5
+                <br> Total Orders Placed: 28
+                <br>
+              </div>
+              <div class="col-md-3">
+                Total Worth: ₹5400
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <main class="main" [@routerTransition]="getState(o)">
+        <router-outlet #o="outlet"></router-outlet>
+      </main>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

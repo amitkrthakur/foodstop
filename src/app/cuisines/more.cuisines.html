@@ -1,0 +1,7 @@
+<div class="text-center">
+    <h4 class="head">More Cuisines</h4>
+    <p>Select any of the following</p>
+</div>
+<div class="cus-lis">
+    <button mat-button class="item" (click)="getCuisine(i.cuisine.cuisine_id)"*ngFor="let i of cusinesList">{{i.cuisine.cuisine_name}}</button>
+</div>

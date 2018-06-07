@@ -1,5 +1,5 @@
 mat-card{
-    margin: 2rem 0;
+    margin: 2rem
 }
 
 .dishes-list{
@@ -52,11 +52,11 @@ mat-card{
     }
 }
 .list{
-    height:85vh;
+    height:90vh;
     overflow-y: auto
 }
 .list-detail{
-    height:85vh;
+    height:90vh;
     overflow-y: auto
 }
 .col-md-4{
@@ -67,4 +67,16 @@ mat-card{
         height: 100%;
         widows: 100%;
     }
+}
+.dishes{
+    padding:0 !important;
+    border-radius: 10px;
+    overflow: hidden;
+    .dish-title{
+        padding: 0.8rem 3rem;
+    }
+}
+.more{
+    width: 88%;
+    margin: 1rem 2rem;
 }

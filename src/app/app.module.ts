@@ -34,6 +34,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './auth/auth.component';
 import { AdminComponent } from './admin/admin.component';
 import { CuisineListComponent } from './cuisine-list/cuisine-list.component';
+import { BrowseMoreCuisines } from './cuisines/cuisines.component';
+import { RestaurantMap } from './restaurant/restaurant.component';
+import { AddProductsComponent } from './add-products/add-products.component';
+import { OrdersComponent } from './orders/orders.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { NotfoundComponent } from './notfound/notfound.component'
 
 @NgModule({
   declarations: [
@@ -56,7 +62,13 @@ import { CuisineListComponent } from './cuisine-list/cuisine-list.component';
     ProfileComponent,
     AuthComponent,
     AdminComponent,
-    CuisineListComponent
+    CuisineListComponent,
+    BrowseMoreCuisines,
+    RestaurantMap,
+    AddProductsComponent,
+    OrdersComponent,
+    AdminDashboardComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -72,6 +84,7 @@ import { CuisineListComponent } from './cuisine-list/cuisine-list.component';
     BrowserAnimationsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
+  entryComponents: [BrowseMoreCuisines,RestaurantMap],
   providers: [],
   bootstrap: [AppComponent]
 })

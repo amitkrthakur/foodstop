@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { routerTransition, groupsTransition } from '../transitions';
 import { DataService } from '../data.service';
 import { MatPaginator, MatSort, MatExpansionPanel, MatSnackBar } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { HttpService } from '../http.service';
+import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
 
 
 @Component({
@@ -20,11 +23,18 @@ export class CuisinesComponent implements OnInit {
 
   order: String[];
 
-  cuisines: any = this.data.cuisines
+  cuisines: any = this.data.cuisines;
 
-  constructor(private data: DataService, public snackBar: MatSnackBar) { }
+  cuslist: any;
+
+  constructor(private data: DataService, private http: HttpService, public snackBar: MatSnackBar, private bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
+    this.http.getCuisines().subscribe(
+      (data: any) => {
+        this.cuslist = data.cuisines
+      }
+    );
   }
 
   addtoCart(val) {
@@ -37,5 +47,28 @@ export class CuisinesComponent implements OnInit {
   onSelect(cuisine) {
     this.selected = cuisine;
   }
+  browse() {
+    this.bottomSheet.open(BrowseMoreCuisines, {
+      data: this.cuslist
+    });
+  }
 
+
+}
+@Component({
+  templateUrl: './more.cuisines.html',
+  styleUrls: ['./more.cuisines.scss'],
+})
+export class BrowseMoreCuisines {
+  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) public data: any, private bottomSheetRef: MatBottomSheetRef<BrowseMoreCuisines>) { }
+
+  cusinesList: any = this.data;
+
+  openLink(event: MouseEvent): void {
+    this.bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
+  getCuisine(val) {
+    console.log(val)
+  }
 }

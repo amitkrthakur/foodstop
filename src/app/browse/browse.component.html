@@ -11,11 +11,10 @@
       </button>
       <span class="spacer"></span>
       <div class="location">
-        <mat-form-field>
-          <mat-label>Search Location</mat-label>
-          <input matInput>
+        <mat-form-field matTooltip="Type to search a city">
+          <input matInput [ngModel]="selectedCity">
         </mat-form-field>
-        <button mat-icon-button>
+        <button mat-icon-button matTooltip="Detect Current Location">
           <mat-icon matSuffix>my_location</mat-icon>
         </button>
       </div>

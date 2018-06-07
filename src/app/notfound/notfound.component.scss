@@ -1,0 +1,33 @@
+.spacer {
+    flex: 1 1 auto;
+}
+footer{
+    background: #7a0f31;
+    color:#fff;
+    padding:1rem
+}
+.img{
+    background-image: url('../../assets/404.png');
+    width:100%;
+    height:auto;
+    background-position: center;
+    background-size: cover
+}
+
+.grid{
+    position: relative;
+    margin-top:128px;
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    .oops{
+        padding:8rem 0;
+        height:500px;
+        button{
+            margin-right:3rem;
+            margin-top:2rem
+        }
+    }
+}
+h4{
+    font-weight: 300
+}

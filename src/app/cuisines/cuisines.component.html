@@ -1,22 +1,23 @@
 <div class="container">
   <div class="text-center">
     <h2>Cuisines</h2>
-    <h4>Select the cuiisine of your choice.</h4>
+    <h4>Select the cuisine of your choice.</h4>
   </div>
   <div class="row">
     <div class="col-md-6 list">
       <div class="cuisines-wrapper">
-        <!-- <div [@groupsTransition]="cuisines.length"> -->
-        <mat-card class="cuisines" *ngFor="let cuisine of cuisines" (click)="onSelect(cuisine)" [ngClass]="selected=='cuisine'?'selected':''">
-          <img mat-card-image src={{cuisine.imgurl}} alt={{cuisine.title}}>
-          <mat-card-title>
-            {{cuisine.title}}
-          </mat-card-title>
-          <mat-card-subtitle>
-            {{cuisine.description}}
-          </mat-card-subtitle>
-        </mat-card>
-        <!-- </div> -->
+        <div [@groupsTransition]="cuisines.length">
+          <mat-card class="cuisines" *ngFor="let cuisine of cuisines" (click)="onSelect(cuisine)" [ngClass]="selected=='cuisine'?'selected':''">
+            <img mat-card-image src={{cuisine.imgurl}} alt={{cuisine.title}}>
+            <mat-card-title>
+              {{cuisine.title}}
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{cuisine.desc}}
+            </mat-card-subtitle>
+          </mat-card>
+        </div>
+        <button class="more" mat-raised-button color="primary" (click)="browse()">Browse for More</button>
       </div>
     </div>
 
@@ -29,29 +30,29 @@
       </div>
       <div class="dishes-wrapper list-detail" *ngIf="selected">
         <h3>{{selected.title}}</h3>
-        <mat-card *ngFor="let dish of selected.dishes">
-          <div class="row">
-            <div class="col-md-8">
-              <mat-card-title>
-                {{dish.name}}
-              </mat-card-title>
-              <mat-card-subtitle>
-                {{dish.description}}
-              </mat-card-subtitle>
-              <mat-card-content>
-                Price : {{dish.price | currency:'INR'}}
-              </mat-card-content>
-              <mat-card-actions>
-                <button mat-raised-button color="accent" (click)="addtoCart(dish.name)">Add to Cart</button>
-              </mat-card-actions>
+        <div [@groupsTransition]="selected.dishes.length">
+          <mat-card class="dishes" *ngFor="let dish of selected.dishes">
+            <div class="row">
+              <div class="col-md-8 dish-title">
+                <mat-card-title>
+                  {{dish.name}}
+                </mat-card-title>
+                <mat-card-subtitle>
+                  <!-- {{dish.desc}} -->
+                </mat-card-subtitle>
+                <mat-card-content>
+                  Price : {{dish.price | currency:'INR'}}
+                </mat-card-content>
+                <button mat-raised-button color="accent" (click)="addtoCart(dish.name)">
+                  <mat-icon>add_shopping_cart</mat-icon>
+                  Add to Cart</button>
+              </div>
+              <div class="col-md-4">
+                <img src={{dish.imgurl}} alt={{dish.name}}>
+              </div>
             </div>
-            <div class="col-md-4">
-              <img src={{dish.imgurl}} alt={{dish.name}}>
-            </div>
-          </div>
-          <!-- <img mat-card-image class="img" src={{dish.imgurl}} alt={{dish.name}}> -->
-
-        </mat-card>
+          </mat-card>
+        </div>
       </div>
     </div>
   </div>
