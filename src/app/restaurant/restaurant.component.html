@@ -4,7 +4,7 @@
 </div>
 
 <div class="res-list">
-  <mat-card class="item" *ngFor="let i of restaurants">
+  <mat-card appearance="outlined" class="item" *ngFor="let i of restaurants">
     <img mat-card-image src={{i.restaurant.featured_image}} alt={{i.restaurant.name}}>
     <mat-card-title>
       {{i.restaurant.name}}

@@ -7,7 +7,7 @@
     <div class="col-md-6 list">
       <div class="cuisines-wrapper">
         <div [@groupsTransition]="cuisines.length">
-          <mat-card class="cuisines" *ngFor="let cuisine of cuisines" (click)="onSelect(cuisine)" [ngClass]="selected=='cuisine'?'selected':''">
+          <mat-card appearance="outlined" class="cuisines" *ngFor="let cuisine of cuisines" (click)="onSelect(cuisine)" [ngClass]="selected=='cuisine'?'selected':''">
             <img mat-card-image src={{cuisine.imgurl}} alt={{cuisine.title}}>
             <mat-card-title>
               {{cuisine.title}}
@@ -31,7 +31,7 @@
       <div class="dishes-wrapper list-detail" *ngIf="selected">
         <h3>{{selected.title}}</h3>
         <div [@groupsTransition]="selected.dishes.length">
-          <mat-card class="dishes" *ngFor="let dish of selected.dishes">
+          <mat-card appearance="outlined" class="dishes" *ngFor="let dish of selected.dishes">
             <div class="row">
               <div class="col-md-8 dish-title">
                 <mat-card-title>

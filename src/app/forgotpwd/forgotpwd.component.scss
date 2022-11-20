@@ -4,6 +4,7 @@
 .forgotpwd-form{
     margin: 2rem 0 7rem 0;
 }
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card{
     padding-top:3rem;
     background-color: rgba($color: #fff, $alpha: 0.6);

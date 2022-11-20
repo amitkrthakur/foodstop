@@ -2,6 +2,7 @@
     text-align:center;
     border-radius: 50%;
 }
+/* TODO(mdc-migration): The following rule targets internal classes of card that may no longer apply for the MDC version. */
 mat-card{
     padding-top:6rem;
     background-color: rgba($color: #fff, $alpha: 0.6)

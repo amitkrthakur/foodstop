@@ -3,7 +3,7 @@
   <h4>Browse throught the greatest collections available around you.</h4>
 </div>
   <div class="my-grid">
-    <mat-card *ngFor="let i of collections">
+    <mat-card appearance="outlined" *ngFor="let i of collections">
       <img mat-card-image src={{i.collection.image_url}} alt={{i.collection.title}}>
       <mat-card-title>
         {{i.collection.title}}

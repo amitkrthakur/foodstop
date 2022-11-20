@@ -1,5 +1,5 @@
 <div class="dishes-wrapper">
-  <mat-card *ngFor="let dish of selectedCuisine">
+  <mat-card appearance="outlined" *ngFor="let dish of selectedCuisine">
     <img mat-card-image src={{dish.imgurl}} alt={{dish.title}}>
     <mat-card-title>
       {{dish.title}}

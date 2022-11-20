@@ -31,13 +31,13 @@
 
 <mat-sidenav-container class="sidenav-container" autosize>
   <mat-sidenav #drawer class="side" mode="side" opened>
-    <mat-card class="dashboard-btn nav-item">
+    <mat-card appearance="outlined" class="dashboard-btn nav-item">
       <button routerLink="add-products" routerLinkActive="active current" mat-button class="text-left">
         <mat-icon>library_add</mat-icon>
         <span>Add Products</span>
       </button>
     </mat-card>
-    <mat-card class="dashboard-btn nav-item">
+    <mat-card appearance="outlined" class="dashboard-btn nav-item">
       <button routerLink="orders" routerLinkActive="active current" mat-button class="text-left">
         <mat-icon>shopping_cart</mat-icon>
         <span>Orders</span>
@@ -48,7 +48,7 @@
   <mat-sidenav-content>
     <div class="sidenav-content">
       <div class="container">
-        <mat-card>
+        <mat-card appearance="outlined">
           <mat-card-title class="text-center">Admin Dashboard</mat-card-title>
           <mat-card-content>
             <div class="row">
