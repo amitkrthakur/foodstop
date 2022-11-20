@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatPaginator, MatSort, MatExpansionPanel, MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, FormControl, Validators, EmailValidator } from '@angular/forms'
 import { Router } from "@angular/router";
 import { DataService } from '../data.service';
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   password: FormControl;
   remember: FormControl;
 
-  constructor(private httpService: HttpService, private router: Router, private fb: FormBuilder, private dt: DataService, public snackBar: MatSnackBar, ) { }
+  constructor(private httpService: HttpService, private router: Router, private fb: FormBuilder, private dt: DataService, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.createFormControls();

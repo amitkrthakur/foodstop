@@ -11,7 +11,8 @@ export class City {
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
+  // templateUrl: './signup.component.html',
+  template: '',
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
@@ -21,41 +22,27 @@ export class SignupComponent implements OnInit {
 
   response: any = { message: '' }
   signupForm: FormGroup;
-  email: FormControl;
-  pwd: FormControl;
-  fName: FormControl;
-  lName: FormControl;
-  mob: FormControl;
-  build: FormControl;
-  street: FormControl;
-  city: FormControl;
-  state: FormControl;
-  pin: FormControl;
+  email = new FormControl('', [
+    Validators.required,
+    Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
+  ]);
+  pwd = new FormControl('', Validators.required)
+  fName = new FormControl('', Validators.required)
+  lName = new FormControl;
+  mob = new FormControl;
+  build = new FormControl;
+  street = new FormControl;
+  city = new FormControl;
+  state = new FormControl;
+  pin = new FormControl;
 
   ngOnInit() {
-    this.createFormControls();
     this.createForm();
     // this.filteredCities = this.city.valueChanges
     //   .pipe(
     //     startWith(''),
     //     map(city => this.filterCities(city))
     //   );
-  }
-
-  createFormControls() {
-    this.email = new FormControl('', [
-      Validators.required,
-      Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")
-    ]);
-    this.pwd = new FormControl('', Validators.required)
-    this.fName = new FormControl('', Validators.required)
-    this.lName = new FormControl;
-    this.mob = new FormControl;
-    this.build = new FormControl;
-    this.street = new FormControl;
-    this.city = new FormControl;
-    this.state = new FormControl;
-    this.pin = new FormControl;
   }
 
   createForm() {

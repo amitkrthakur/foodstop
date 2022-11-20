@@ -1,26 +1,25 @@
 // Import material theming functions
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 @include mat-core();
 
 $custom-primary: mat-palette($mat-pink, 600);
-$custom-accent:  mat-palette($mat-indigo, 900);
+$custom-accent: mat-palette($mat-indigo, 900);
 
 $custom-theme: mat-light-theme($custom-primary, $custom-accent);
 
 @include angular-material-theme($custom-theme);
 
 
-$custom-typography: mat-typography-config(
-    $font-family: 'Lato'
-);
+$custom-typography: mat-typography-config($font-family: 'Lato'
+  );
 @include mat-core($custom-typography);
 @include mat-base-typography($custom-typography);
 @include angular-material-typography($custom-typography);
 
 // Copy the palettes from your selected theme (usually theme.scss).
 $app-primary: mat-palette($custom-primary);
-$app-accent:  mat-palette($custom-accent);
-$app-warn:    mat-palette($mat-red);
+$app-accent: mat-palette($custom-accent);
+$app-warn: mat-palette($mat-red);
 
 // Create your Sass color vars (will be available in all the project)
 $primary: mat-color($app-primary);

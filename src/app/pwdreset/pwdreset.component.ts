@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpService } from '../http.service';
 import { CustomValidations } from '../custom-validations'
 
@@ -17,6 +17,8 @@ export class PwdresetComponent implements OnInit {
   password: FormControl
   confirm_password: FormControl
   code: string = "";
+
+  sending = false;
 
   constructor(private httpService: HttpService, private route: ActivatedRoute, private fb: FormBuilder) { }
 
@@ -57,8 +59,8 @@ export class PwdresetComponent implements OnInit {
       const data: any = { 'pwd': JSON.stringify(this.password.value), 'code': this.code };
       console.log("sending password...");
       this.httpService.resetPwd(data).subscribe(
-        (data:any) => {
-        //console.log(JSON.stringify(data));
+        (data: any) => {
+          //console.log(JSON.stringify(data));
           this.response = JSON.parse(data.error);
           console.log(this.response)
         }

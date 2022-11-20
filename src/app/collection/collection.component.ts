@@ -8,11 +8,16 @@ import { HttpService } from '../http.service';
 })
 export class CollectionComponent implements OnInit {
 
-  collections:any;
+  collections: any;
 
   constructor(private http: HttpService) { }
 
   ngOnInit() {
+    // this.http.getCities().subscribe(
+    //   (data: any) => {
+    //     console.log(data);
+    //   }
+    //   );
     this.getColl();
   }
 

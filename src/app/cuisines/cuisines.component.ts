@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { routerTransition, groupsTransition } from '../transitions';
 import { DataService } from '../data.service';
-import { MatPaginator, MatSort, MatExpansionPanel, MatSnackBar } from '@angular/material';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { HttpService } from '../http.service';
-import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 
 @Component({

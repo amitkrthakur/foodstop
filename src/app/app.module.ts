@@ -84,7 +84,7 @@ import { NotfoundComponent } from './notfound/notfound.component'
     BrowserAnimationsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
-  entryComponents: [BrowseMoreCuisines,RestaurantMap],
+  entryComponents: [BrowseMoreCuisines, RestaurantMap],
   providers: [],
   bootstrap: [AppComponent]
 })

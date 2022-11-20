@@ -45,10 +45,7 @@ export class HttpService {
   forgotpwdUrl: string = this.scheme + '://' + this.host + '/api/forgotpwd';
 
   //Zomato API Urls
-  collectionsUrl: string = "https://developers.zomato.com/api/v2.1/collections"
-  cuisinesUrl: string = "https://developers.zomato.com/api/v2.1/cuisines"
-  searchUrl: string = "https://developers.zomato.com/api/v2.1/search"
-  geoLocationUrl: string = "https://developers.zomato.com/api/v2.1/geocode"
+  zomatoUrl = "https://developers.zomato.com/api/v2.1/";
 
   constructor(private http: HttpClient) { }
 
@@ -71,25 +68,28 @@ export class HttpService {
 
 
   //Zomato Api
+  getCities(): Observable<Object> {
+    return this.http.get(this.zomatoUrl + 'cities' + '?lat=' + this.longitude + '&lon=' + this.longitude + '&q=' + 'New Delhi, India', this.zomatoHeaders);
+  }
+
   getCollections(): Observable<Object> {
-    return this.http.get(this.collectionsUrl + '?lat=' + this.longitude + '&lon=' + this.longitude, this.zomatoHeaders);
+    return this.http.get(this.zomatoUrl + 'collections' + '?lat=' + this.longitude + '&lon=' + this.longitude + '&city_id=' + '1', this.zomatoHeaders);
   }
 
   getCuisines(): Observable<Object> {
-    return this.http.get(this.cuisinesUrl + '?lat=' + this.latitude + '&lon=' + this.longitude, this.zomatoHeaders);
+    return this.http.get(this.zomatoUrl + 'cuisines' + '?lat=' + this.latitude + '&lon=' + this.longitude, this.zomatoHeaders);
   }
 
   nearbyRestaurants() {
-    return this.http.get(this.geoLocationUrl + '?lat=' + this.latitude + '&lon=' + this.longitude, this.zomatoHeaders);
+    return this.http.get(this.zomatoUrl + 'geocode' + '?lat=' + this.latitude + '&lon=' + this.longitude, this.zomatoHeaders);
   }
 
   searchCuisines(cus_id: Number): Observable<Object> {
-    return this.http.get(this.searchUrl + '?lat=' + this.latitude + '&lon=' + this.longitude + '&id' + cus_id, this.zomatoHeaders);
+    return this.http.get(this.zomatoUrl + 'search' + '?lat=' + this.latitude + '&lon=' + this.longitude + '&id' + cus_id, this.zomatoHeaders);
   }
 
   searchRestaurant(res_id: Number): Observable<Object> {
-    return this.http.get(this.searchUrl + '?lat=' + this.latitude + '&lon=' + this.longitude + '&id' + res_id, this.zomatoHeaders);
+    return this.http.get(this.zomatoUrl + 'search' + '?lat=' + this.latitude + '&lon=' + this.longitude + '&id' + res_id, this.zomatoHeaders);
   }
-
 
 }

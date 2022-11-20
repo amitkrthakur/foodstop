@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpService } from '../http.service';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
-import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { MatBottomSheet, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 
 
 @Component({
@@ -11,7 +10,7 @@ import { MAT_BOTTOM_SHEET_DATA } from '@angular/material';
 })
 export class RestaurantComponent implements OnInit {
 
-  location: String;
+  location: any;
   restaurants: any;
   topCuisines: [String];
 
@@ -49,7 +48,7 @@ export class RestaurantMap {
 
   lat: Number = parseFloat(this.data.location.latitude)
   lon: Number = parseFloat(this.data.location.longitude)
-  zoom:Number = 14
+  zoom: Number = 14
 
   openLink(event: MouseEvent): void {
     this.bottomSheetRef.dismiss();

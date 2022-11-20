@@ -11,6 +11,7 @@ export class ForgotpwdComponent implements OnInit {
   response: any = { code: '' }
   resetpwdForm: FormGroup
   email: FormControl
+  sending = false;
 
   constructor(private httpService: HttpService, private fb: FormBuilder) { }
 
